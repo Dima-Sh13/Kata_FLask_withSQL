@@ -33,12 +33,14 @@ def create():
     if request.method == "GET":#GET
         return render_template("create.html",dataForm={})
     else:#POST
-        errores = validarFormulario(request.form)
-        if errores:
-            return render_template("create.html",errors=errores,dataForm=request.form)
-        insert( [ request.form['date'],request.form['concept'],request.form['quantity'] ])
+        if form.validate_on_submit():
+              insert( [ request.form['date'],request.form['concept'],request.form['quantity'] ])
+              return redirect("/")  
+        else:
+            return render_template("create.html", dataForm=form)
 
-        return redirect("/")
+
+       
     
 @app.route("/delete/<int:id>",methods=["GET","POST"])
 def remove(id):
