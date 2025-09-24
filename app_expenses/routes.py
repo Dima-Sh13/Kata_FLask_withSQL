@@ -2,6 +2,10 @@ from app_expenses import app
 from flask import render_template,request,redirect
 from app_expenses.models import *
 from datetime import date
+from app_expenses.forms import MOvementsForm
+
+
+
 
 def validarFormulario(datosFormulario):
     errores = []#se crea la lista para guardar errores
@@ -24,6 +28,8 @@ def index():
 
 @app.route("/new",methods=["GET","POST"])
 def create():
+    form = MOvementsForm()
+    
     if request.method == "GET":#GET
         return render_template("create.html",dataForm={})
     else:#POST

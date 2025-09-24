@@ -2,6 +2,31 @@
 {% block contenido %}
 
 <form action="/new" method="post">
+  {{dataForm.crsf_token}}
+
+  {{dataForm.date.label}}
+  {{dataForm.date}}
+  {{dataForm.concept.label}}
+  {{dataForm.concept}}
+  {{dataForm.amount.label}}
+  {{dataForm.amount}}
+
+  {{dataForm.submit}}
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!--
   <fieldset>
     <label>
       Fecha
@@ -45,5 +70,5 @@
         {% endfor %}
     </ul>
 </article>
-
+-->
 {% endblock %}
