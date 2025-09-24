@@ -49,6 +49,7 @@ def remove(id):
         resultado = select_by(id)
         return render_template("delete.html",data=resultado)
     else:#post
+        flash("Movimiento eliminado correctamente")
         return f"registro para eliminar con id:{id}"
     
 @app.route("/update/<int:id>",methods=["GET","POST"])
