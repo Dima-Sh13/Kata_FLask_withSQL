@@ -1,6 +1,6 @@
-from app import app
+from app_expenses import app
 from flask import render_template,request,redirect
-from app.models import *
+from app_expenses.models import *
 from datetime import date
 
 def validarFormulario(datosFormulario):
