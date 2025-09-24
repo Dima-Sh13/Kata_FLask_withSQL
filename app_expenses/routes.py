@@ -1,5 +1,5 @@
 from app_expenses import app
-from flask import render_template,request,redirect
+from flask import render_template,request,redirect, flash
 from app_expenses.models import *
 from datetime import date
 from app_expenses.forms import MOvementsForm
@@ -35,6 +35,7 @@ def create():
     else:#POST
         if form.validate_on_submit():
               insert( [ request.form['date'],request.form['concept'],request.form['quantity'] ])
+              flash("Movimiento registrado en la base de datos")
               return redirect("/")  
         else:
             return render_template("create.html", dataForm=form)
