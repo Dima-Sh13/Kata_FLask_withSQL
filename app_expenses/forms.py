@@ -13,3 +13,6 @@ class MOvementsForm(FlaskForm):
     def validate_date(form, field):
         if field.data > date.today():
             raise ValidationError("La fecha no puede ser en el futuro")
+        
+    def validate_other():
+        pass
